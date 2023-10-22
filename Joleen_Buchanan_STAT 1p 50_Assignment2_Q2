@@ -1,0 +1,37 @@
+#Question 2
+from random import sample
+
+for i in range(0,100):
+
+    a = sample(['1','2','3'],1)
+    b = sample(['1','2','3'],1)
+    file_a = open(file='._sample-file.txt', mode='a')
+    file_b = open(file='._crime.csv.txt', mode='a')
+
+    file_a.write('/home/jojo/Documents/Data/sample-file.txt'+a[0])
+    file_b.write('/home/jojo/Documents/Data/sample-file.txt'+b[0])
+
+    file_a.close()
+    file_b.close()
+
+# Open the files for reading and compare their contents
+file1 = open('/home/jojo/Documents/Data/sample-file.txt', 'r')
+file2 = open('/home/jojo/Documents/Data/sample-file.txt', 'r')
+
+lines1 = file1.readlines()
+lines2 = file2.readlines()
+
+file1.close()
+file2.close()
+
+# Check if the lines are the same and print 'Success!' if they are
+for i in range(min(len(lines1), len(lines2))):
+    if lines1[i].strip() == lines2[i].strip():
+        print('Success!')
+################## your code here ###################
+## you need to
+## 1. write a for loop to read the files line by line
+## and compare the values
+
+
+#######################################################

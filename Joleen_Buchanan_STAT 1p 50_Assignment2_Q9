@@ -1,0 +1,19 @@
+#Question 9
+
+import pandas as pd
+
+# Load your crime data
+data = pd.read_csv('/home/jojo/Documents/Data/crime.csv')
+
+# Calculate the ratio of violent crimes using existing columns
+data['ViolentCrimeRatio'] = data['ViolentCrimesPerPop'] / (data['PctPopUnderPov'] + data['PctUnemployed'] + data['PolicPerPop'] + data['Pcthomeless'])
+
+# Calculate the correlation matrix
+correlation_matrix = data.corr()
+
+# Get the correlation of features with the ratio of violent crimes
+correlation_with_ratio = correlation_matrix['ViolentCrimeRatio'].drop('ViolentCrimeRatio')
+
+# Print the correlation values
+print("Correlation of features with the ratio of violent crimes:")
+print(correlation_with_ratio)

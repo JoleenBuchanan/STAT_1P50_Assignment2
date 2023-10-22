@@ -1,0 +1,20 @@
+#Question 10
+import statistics
+import numpy as np
+test_list = [2,3,4,5,999]
+
+def is_outlier(dataset, value):
+    mean = np.mean(dataset)
+    stddev = np.std(dataset)
+    lower_bound = mean - 3 * stddev
+    upper_bound = mean + 3 * stddev
+
+    if value < lower_bound or value > upper_bound:
+        print(f"{value} is an outlier.")
+    else:
+        print(f"{value} is not an outlier.")
+
+# Test the function
+test_value  = int(input('Input test value'))
+is_outlier(test_list, test_value)
+

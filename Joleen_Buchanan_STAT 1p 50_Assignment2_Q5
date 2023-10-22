@@ -1,0 +1,27 @@
+#Question 5
+import pandas as pd
+import matplotlib.pyplot as plt
+data = pd.read_csv('/home/jojo/Documents/Data/student.csv')
+
+data = data[['internet', 'grade']]
+
+data2 = data.groupby('internet').mean().reset_index()
+
+print(data2)
+
+plt.bar(data2['internet'], data2['grade'], edgecolor="white")
+
+# Add labels and title
+plt.xlabel('Internet Access')
+plt.ylabel('Mean Grade')
+plt.title('Mean Grade by Internet Access')
+
+# Show the plot
+plt.show()
+ ## you need to
+ ## 1. Get the list of access to the internet and the
+ ## list of corresponding mean grades from data2
+ ## 2. Use these lists to create a plot
+
+
+ #######################################################

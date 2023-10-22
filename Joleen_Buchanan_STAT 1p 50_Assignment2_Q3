@@ -1,0 +1,12 @@
+#Question 3
+file = open('/home/jojo/Documents/Data/sample-file.txt', 'r')
+file_path = 'sample-file.txt'
+# Initialize a line counter
+line_count = 0
+for line in file:
+        # Check if the line contains the 'q' character
+        if 'q' in line:
+            line_count += 1
+
+# Print the number of lines with 'q' character
+print(f"Number of lines in '{file_path}' that include the 'q' character: {line_count}")

@@ -1,0 +1,58 @@
+#Question 6
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.preprocessing import StandardScaler
+
+
+
+# Load data from the CSV file
+data = pd.read_csv('/home/jojo/Documents/Data/crime.csv')
+
+# Select the columns you want to work with (studytime and grade)
+data = data[['PctPopUnderPov', 'ViolentCrimesPerPop']]
+
+# Print the grouped and averaged data
+print(data)
+
+x = data['PctPopUnderPov']
+y = data['ViolentCrimesPerPop']
+# Create a line plot
+plt.scatter(x,y)
+
+# Add labels and title
+plt.xlabel('‘PctPopUnderPov')
+plt.ylabel('ViolentCrimesPerPop')
+plt.title('Mean Grade by Study Time')
+
+# Show the plot
+plt.show()
+
+
+feature = 'ViolentCrimesPerPop'
+crime_list = np.array(data[feature]).reshape(-1, 1)
+
+# Create a StandardScaler object
+scaler = StandardScaler()
+
+# Fit and transform the feature data using the scaler
+scaled_feature = scaler.fit_transform(crime_list)
+
+# Create a scatter plot with the scaled feature values
+x = scaled_feature
+y = data['PctPopUnderPov']
+
+# Print the scaled feature (optional)
+print("Scaled Feature:")
+print(pd.DataFrame(scaled_feature, columns=[feature]))
+
+# Create a scatter plot
+plt.scatter(x, y)
+
+# Add labels and a title
+plt.xlabel(f'Scaled {feature}')
+plt.ylabel('PctPopUnderPov')
+plt.title(f'Scatter Plot of Scaled {feature} vs. PctPopUnderPov')
+
+# Show the plot
+plt.show()

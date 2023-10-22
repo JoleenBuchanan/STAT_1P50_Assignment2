@@ -1,0 +1,20 @@
+#Question 8
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load your data
+data = pd.read_csv('/home/jojo/Documents/Data/student.csv')  # Replace with your file path
+
+# Divide the data into two categories: studytime less than 3 and studytime greater than or equal to 3
+studytime_less_than_3 = data[data['studytime'] < 3]
+studytime_3_or_more = data[data['studytime'] >= 3]
+
+# Create box plots for 'grade' in each category
+
+plt.boxplot([studytime_less_than_3['grade'], studytime_3_or_more['grade']],
+            labels=['<3', '>=3'])
+plt.title('Studytime')
+
+
+plt.show()

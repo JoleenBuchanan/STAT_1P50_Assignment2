@@ -1,0 +1,26 @@
+#Question 4
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load data from the CSV file
+data = pd.read_csv('/home/jojo/Documents/Data/student.csv')
+
+# Select the columns you want to work with (studytime and grade)
+data = data[['studytime', 'grade']]
+
+# Group the data by 'studytime' and calculate the mean grade
+data2 = data.groupby('studytime')['grade'].mean().reset_index()
+
+# Print the grouped and averaged data
+print(data2)
+
+# Create a line plot
+plt.plot(data2['studytime'], data2['grade'])
+
+# Add labels and title
+plt.xlabel('Study Time')
+plt.ylabel('Mean Grade')
+plt.title('Mean Grade by Study Time')
+
+# Show the plot
+plt.show()
